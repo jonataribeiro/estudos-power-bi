@@ -1,0 +1,40 @@
+/*<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - DevClub</title>
+</head>
+<body>
+    <h1>JavaScript</h1>
+    <input onkeypress="digiteiNoInput()" id="main-input" placeholder="Digite Aqui">
+    <p>Começando nossa jornada para aprender</p>
+    <p class="paragraph-js">A linguagem de <b>Programação</b> mais versátil do mundo!</p>
+    
+    <button onclick="clqueiNoBotao()" class="main-button">Clique Aqui</button>
+</body>
+<style>
+    h1 {
+        color: blue;
+    }
+    button {
+        background-color: green;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+<script>const input = document.querySelector("#main-input")
+function clqueiNoBotao() {
+    alert("Você clicou no botão!")
+}
+
+function digiteiNoInput() {
+    console.log(input.value)
+}</script>
+</html>
+
+

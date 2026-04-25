@@ -1,0 +1,11 @@
+from câmera import tirar_foto
+
+
+def fazer_pipoca():
+    print('Fazendo pipoca...')
+    print(__name__)
+
+
+if__name__== "main"
+    fazer_pipoca()
+    tirar_foto()
