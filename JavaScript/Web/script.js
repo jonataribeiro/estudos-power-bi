@@ -1,3 +1,4 @@
+/*
 console.log("Olá, JavaScript! Agora estou por aqui!");
 
 
@@ -36,10 +37,30 @@ console.log(input)
 const elements = document.getElementsByClassName("paragraph-js");
 
 console.log(elements)
-*/
-
-
 
 const elements = document.getElementsByName("nome-completo   ");
 
 console.log(elements)
+
+
+const element = document.querySelector(".paragraph-js")
+
+console.log(element.textContent) // SÓ HTML
+console.log(element.innerText) // LEVA EM CONTA CSS
+
+console.log(element.innerHTML) // TRÁS TUDO -> PERMITE ADICIONAR HTML
+
+*/
+
+/* EVENTOS */
+/*
+const input = document.querySelector("#main-input")
+
+function cliqueiNoBotao(){
+    console.log(input.value)
+}
+
+function digiteiNoInput(){
+    console.log("Digitei no input")
+}
+*/

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,11 +9,15 @@
 </head>
 <body>
     <h1>JavaScript</h1>
-    <input onkeypress="digiteiNoImput()" id="main-input" placeholder="Digite aqui">
-    <p>Começando nossa Jornada para aprender</p>
-    <p class="paragraph-js">A Linguagem de <b>Programação</b> mais versátil do mercado</p>
-
-    <button onclick="cliqueiNoBotao()" class="main-button">Clique aqui</button>
+    <input id="main-input" placeholder="Digite aqui">
+    
+    <select>
+        <option>HTML</option>
+        <option>CSS</option>
+        <option>React</option>
+        <option>Node</option>
+    </select>
+    <button class="main-button">Clique aqui</button>
     
 </body>
 <style>
@@ -21,17 +26,19 @@
     }
 
     button {
-        background-color: green;
-        color: #2102B8;
+        background-color: rgb(7, 7, 7);
+        color: #f6f5f8;
         padding: 10px 20px;
         border: none;
-        border-radius: 5px;
+        border-radius: 10px;
         cursor: pointer;
     }
 
     P {
         visibility: hidden;
     }
+
+    
 </style>
-<script src="./script.js"></script>
+<script src="script.js" defer></script>
 </html>
