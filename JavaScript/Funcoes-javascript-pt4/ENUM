@@ -1,0 +1,14 @@
+/* ENUNS
+
+
+ESSA PARTE DOS ENUNS ESTÃO NO SCRIPT DESSE PROJETO DE JOKEMPÔ
+
+humanScoreNumber    -> Camel Case
+GAME_OPTIONS        -> Snake Case
+*/
+
+const GAME_OPTIONS = {
+    ROCK: 'rock',
+    PAPER: 'paper',
+    SCISSORS: 'scissors'
+}
