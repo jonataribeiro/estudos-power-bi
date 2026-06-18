@@ -1,1 +1,0 @@
-console.log("Olá, este é o arquivo.js!");
