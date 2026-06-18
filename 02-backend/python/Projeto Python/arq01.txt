@@ -1,0 +1,4 @@
+Jônata Ribeiro
+Criando um arquivo de texto com Python
+Arquivo criado por Jônata Emerson Ribeiro
+É isso aí, pessoal!

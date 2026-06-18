@@ -1,0 +1,438 @@
+/*
+    Array's
+
+    - push      -> Adiciona mais um item ao array
+    - length    -> Mostra o tamanho do array
+    - sort      -> Organiza o array
+    - delete    -> Deleta o item de uma posição do array
+    - every     -> Esse método testa se todos os elementos do Array passam em uma condição.
+    - some      -> some -> O .some() testa se PELO MENOS UM elemento do array passa na condição.
+    - fill      -> Preenche ou substitui posições do array com um valor fixo.
+    - find      -> Encontra e retorna o PRIMEIRO elemento que bater com a condição. Se não encontrar nenhum, retorna undefined.
+    - findIndex -> Faz o mesmo que o .find(), mas retorna o ÍNDICE (posição) do elemento. Se não encontrar ninguém, retorna -1.
+    - concat()  -> Junta dois ou mais arrays (ou elementos) em um novo array combinado. Deixa os arrays originais 100% intactos.
+
+
+    - includes  -> O método includes() determina se um array contém um determinado elemento
+    - join      -> Junta todos os elementos de um array e os transforma em uma única String.
+                   Você escolhe o separador dentro dos parênteses.
+        
+    - slice(fatiar) -> Extrai uma parte do array e joga em um NOVO array.
+//                     Deixa o array original 100% intacto. O último índice não é incluído.
+    - splice    -> // - splice -> Altera o array original. Remove, substitui ou adiciona elementos.
+    - pop       -> Remove o último elemento de um array.
+    - shift     -> Tira quem está no COMEÇO do array (a cabeça do array).
+
+*/
+
+
+/*const frutas = ['Maçã', 'Banana'];
+frutas.push('Uva');
+console.log(frutas); // ['Maçã', 'Banana', 'Uva']
+
+// length: Mostra o tamanho do array. A quantidade de itens dentro do array.
+const myArray = [1, 2, 3]
+console.log(myArray.length) // 3
+
+let array2 = ["abacate", "salada-mista","mamão", 33, 44]
+console.log(array2.length) // 5
+
+const numeros = [10, 20, 30, 40];
+console.log(numeros.length); // 4
+
+
+
+// sort: Organiza o array
+
+let array = ["mamão", "abacate", "laranja"]
+array.sort() // ["abacate", "laranja", "mamão"]
+
+const myArray = ["limão", "abóbora", "caqui"]
+myArray.sort()
+console.log(myArray)
+
+
+const letras = ['B', 'A', 'C'];
+letras.sort();
+console.log(letras); // ['A', 'B', 'C']
+
+const numeros = [10, 5, 80, 1];
+numeros.sort((a, b) => a - b); // Ordenação numérica correta
+console.log(numeros); // [1, 5, 10, 80]
+
+
+const itens = ['A', 'B', 'C'];
+delete itens[1]; // Deleta o 'B'
+console.log(itens); // ['A', <1 empty item>, 'C']
+console.log(itens.length); // Continua sendo 3!
+*/
+
+
+//every
+/*every: Esse método testa se todos os elementos do Array passam em uma condição.
+Passamos uma função que rettorna true ou false. Se todos os termos forem true, significa que todos os elementos passaram no TextDecoderStream,
+e a função retornará true. Se algum ítem não estiver de acordo, ele retornará false. */
+
+/*
+const array1 = [1, 30, 39, 29, 10, 13];
+console.log(array1.every((value) => value < 200 )); //true
+
+const users = [
+    {name: 'Nico', credit: 600},
+    {name: 'Maria', credit: 900},
+    {name: 'Jônata', credit: 300},
+    {name: 'Vanessa', credit: 200},
+];
+
+const isTrue = users.every(user => user.credit > 100)
+console.log(isTrue)
+
+console.log(users.every((user) => user.credit < 1000)) // true
+
+console.log(users.every((user) => user.credit < 500)) // false
+
+
+const idades = [20, 30, 15];
+const todosMaiores = idades.every(idade => idade >= 18);
+console.log(todosMaiores); // false (porque o 15 quebrou a regra)
+*/
+
+
+// Some()
+/*Para você gravar fácil: o nome .some() significa "algum" em inglês. Ou seja,
+ele serve para fazer uma pergunta de "Sim ou Não" para a sua lista:
+“Será que pelo menos um item aqui dentro cumpre essa regra?”
+Se ele achar um único item que passe no teste, ele já grita true (verdadeiro).
+Ele só vai dar false (falso) se absolutamente ninguém passar.*/
+
+// 💻 Exemplo 1: Sistema de Cinema (Checando a idade)
+// Imagine que uma família quer comprar ingressos para um filme de terror,
+// mas a regra diz que pelo menos um deles precisa ser maior de idade para o grupo poder entrar.
+/*
+const idadesFamilia = [12, 15, 10, 35, 8]; // Pergunta: Tem ALGUM maior de idade (>= 18) na lista?
+const podeEntrar = idadesFamilia.some(idade => idade >= 18);
+console.log(podeEntrar); // Resultado: true (porque o 35 passou na regra!)
+*/
+// 💻 Exemplo 2: E-commerce (Verificando o Estoque)
+// Você está criando um carrinho de compras. Antes de fechar o pedido,
+// o sistema precisa checar se existe algum produto esgotado (quantidade igual a zero) para avisar o cliente.
+
+/*
+const carrinho = [
+    { produto: 'Teclado', qtd: 2 },
+    { produto: 'Mouse', qtd: 0 }, // Opa, esse aqui tá zerado!
+    { produto: 'Monitor', qtd: 1 }
+];
+
+// Pergunta: Tem ALGUM produto com quantidade igual a 0?
+const temProdutoEsgotado = carrinho.some(item => item.qtd === 0);
+console.log(temProdutoEsgotado); 
+// Resultado: true (porque o Mouse está esgotado)
+*/
+
+
+// fill -> Preenche ou substitui posições do array com um valor fixo.
+
+/*
+💻 Exemplo 1: O Balde de Tinta (Substituindo tudo)
+Se você não passar onde começa e onde termina, ele é agressivo:
+ele passa o rolo de tinta e muda a lista inteira.
+*/ 
+
+/*const jogos = ['GTA', 'Mario', 'Zelda']; // Ordem: Preencha tudo com 'Tetris'
+jogos.fill('Tetris');
+console.log(jogos); // Resultado: [ 'Tetris', 'Tetris', 'Tetris' ]
+
+/*
+💻 Exemplo 2: O Cirúrgico (Escolhendo o pedaço)
+Agora usando o caminho das pedras completo.
+Imagine um sistema de cupom de vagas onde você quer resetar apenas algumas posições específicas.
+JavaScript
+*/
+
+/*const numbers = [10, 20, 30, 40, 50]; // Ordem: Coloque o número 0, começando na posição 1 até ANTES da posição 4
+numbers.fill(0, 1, 4);
+console.log(numbers); // Resultado: [ 10, 0, 0, 0, 50 ]
+
+// Cria um array com 5 espaços vazios e preenche todos com a palavra 'estrela'
+const avaliacao = Array(5).fill('estrela');
+console.log(avaliacao); // Resultado: [ 'estrela', 'estrela', 'estrela', 'estrela', 'estrela' ]
+
+
+const numbers = [1, 2, 3, 4]
+numbers.fill('abacate', 2)
+console.log(numbers)
+*/
+
+/*
+// find -> Encontra e retorna o PRIMEIRO elemento que bater com a condição.
+//           Se não encontrar nenhum, retorna undefined.
+// find -> usamos esse método quando queremos encontrar algum elemento dentro do Array.
+// Para isso, passamos uma função que irá retornar true ou false. O primeiro true que for
+// retornado irá finalizar a função e retornar o elemento em que estamos.
+
+
+//💻 Exemplo 1: Buscando um Usuário pelo name.
+const users = [
+    {name: 'Nico', credit: 600},
+    {name: 'Maria', credit: 900},
+    {name: 'Jônata', credit: 300},
+    {name: 'Vanessa', credit: 200},
+];
+
+const findAUser = users.find( user => user.name === "Maria")
+console.log(findAUser)
+
+
+//💻 Exemplo 2: Buscando um Usuário pelo ID (Direto no Banco de Dados)
+// Isso aqui acontece a cada segundo em sistemas reais. O usuário clica no perfil dele,
+// e o sistema precisa buscar os dados dele pelo ID único.
+
+const usuarios = [
+    { id: 1, nome: 'Maria' },
+    { id: 2, nome: 'Jônata' },
+    { id: 3, nome: 'Ana' }
+];
+
+const usuarioEncontrado = usuarios.find(user => user.id === 2); // Ordem: Procure o usuário que tenha o id igual a 2
+console.log(usuarioEncontrado); // Resultado: { id: 2, nome: 'Jônata' }
+
+
+// 💻 Exemplo 2: Procurando um Produto Caro no Estoque
+// Imagine que você quer achar o primeiro produto da sua lista
+// que custe mais de R$ 3.000 para aplicar uma taxa de seguro.
+
+const produtos = [
+    { nome: 'Mouse', preco: 150 },
+    { nome: 'Teclado', preco: 300 },
+    { nome: 'iPhone', preco: 5000 },
+    { nome: 'Notebook', preco: 4500 }
+];
+
+const produtoCaro = produtos.find(item => item.preco > 3000); // Ordem: Me traga o primeiro produto com preço maior que 3000
+console.log(produtoCaro); // Resultado: { nome: 'iPhone', preco: 5000 }
+*/
+
+
+// findIndex -> Enquanto o .find() vai até a lista e te traz o objeto inteiro,
+// o .findIndex() vai lá e te traz apenas a posição (o índice) onde esse objeto está sentado.
+
+// 💻 Exemplo 1: Descobrindo a Posição para Deletar um Usuário
+// No dia a dia dos sistemas, para deletar alguém de uma lista usando o .splice(),
+// a primeira coisa que o JavaScript precisa saber é: em qual posição da memória esse cara está?
+
+/*const usuarios = [
+    { id: 101, nome: 'Maria' },
+    { id: 102, nome: 'Jônata' }, // <- Queremos a posição dele
+    { id: 103, nome: 'Ana' }
+];
+
+const posicao = usuarios.findIndex(user => user.id === 102); // Ordem: Em qual posição está o usuário com ID 102?
+console.log(posicao); // Resultado: 1 // (Lembrando que a contagem do JavaScript começa no 0: Maria é 0, Jônata é 1)
+
+
+// 💻 Exemplo 2: Fila de Atendimento (Quem é o próximo?) 
+// Imagine que você tem uma lista de carros esperando para fazer manutenção na oficina
+// e quer saber qual é a posição do "Honda Fit" na fila.
+
+const filaOficina = ['Palio', 'Civic', 'Honda Fit', 'Corolla'];
+const indiceCarro = filaOficina.findIndex(carro => carro === 'Honda Fit'); // Ordem: Qual é o índice do 'Honda Fit'?
+console.log(indiceCarro); // Resultado: 2 (Palio é 0, Civic é 1, Honda Fit é 2)
+
+
+// O .findIndex() trabalha com números (posições). Se ele vasculhar a lista inteira
+// e não encontrar ninguém, ele obrigatoriamente te devolve o número -1.
+const frutas = ['Maçã', 'Banana'];
+const posicaoUva = frutas.findIndex(fruta => fruta === 'Uva');
+console.log(posicaoUva); // Resultado: -1 (Significa: "Não existe essa parada na lista!")
+*/
+
+
+// - concat -> Junta dois ou mais arrays (ou elementos) em um novo array combinado.
+// Deixa os arrays originais 100% intactos.
+
+/*
+// 💻 Exemplo 1: Juntando Listas de Tecnologias (Unindo Forças)
+// Imagine que você está separando o que vai estudar de Front-end e o que vai estudar de Back-end,
+// e depois quer unificar tudo na sua lista master de estudos Full-Stack.
+
+
+const frontEnd = ['React', 'TypeScript'];
+const backEnd = ['Node.js', 'SQL Server'];
+const fullStack = frontEnd.concat(backEnd); // Ordem: Pegue a lista de front e cole a lista de back nela
+
+console.log(fullStack); // Resultado: [ 'React', 'TypeScript', 'Node.js', 'SQL Server' ]
+
+
+// 💻 Exemplo 2: Juntando Várias Listas de Uma Vez Só 
+// O .concat() é poderoso porque não serve só para duas listas.
+// Você pode passar quantas quiser separadas por vírgula dentro dos parênteses, ou até misturar elementos soltos!
+
+const caes = ['Mel', 'Luna'];
+const gatos = ['Tom'];
+const passaros = ['Louro'];
+
+const todosOsPets = caes.concat(gatos, passaros, 'Cavanhaque'); // Juntando tudo em uma grande lista de animais
+
+console.log(todosOsPets); // Resultado: [ 'Mel', 'Luna', 'Tom', 'Louro', 'Cavanhaque' ]
+*/
+
+
+// - join -> Junta todos os elementos de um array e os transforma em uma única String.
+
+// 💻 Exemplo 1: Formatando Nome Completo (Uso real em Cadastros)
+// Quando o usuário digita o nome dele em partes no formulário do site
+// e você precisa juntar tudo com um espaço no meio para salvar no banco de dados.
+
+/*
+const partesDoNome = ['Jônata', 'Emerson', 'Ribeiro']; // Ordem: Junte tudo colocando um espaço em branco ' ' entre as palavras
+const nomeCompleto = partesDoNome.join(' ');
+
+console.log(nomeCompleto); // Resultado: "Jônata Emerson Ribeiro"
+
+
+// 💻 Exemplo 2: Criando Links Amigáveis (Slugs de URL)
+// Sabe quando você lê uma matéria em um site e a URL fica cheia de tracinhos?
+// Tipo meusite.com/tudo-sobre-javascript. O .join() faz exatamente isso!
+
+const palavrasChave = ['tudo', 'sobre', 'javascript'];
+
+const urlAmigavel = palavrasChave.join(', '); // Ordem: Junte todas as palavras separando por um traço '-'
+
+console.log(urlAmigavel); // Resultado: "tudo-sobre-javascript"
+
+// ⚠️ A Pegadinha de Júnior: Esquecer o separador
+// Se você não colocar nada dentro dos parênteses do .join(),
+// o JavaScript vai usar uma vírgula por padrão para separar as palavras.
+
+const letras = ['A', 'B', 'C'];
+
+console.log(letras.join());   // Resultado: "A,B,C" (Esqueceu o separador, vira vírgula)
+console.log(letras.join('')); // Resultado: "ABC" (Passou texto vazio, gruda tudo sem espaço)
+*/
+
+
+//Tanto o .pop() quanto o .shift() servem para uma única missão: remover um elemento do array e jogá-lo para fora.
+// A diferença entre eles é só a porta de saída. Para nunca mais esquecer:
+// .pop(): Tira quem está no FINAL do array (a bunda do array).
+// .shift(): Tira quem está no COMEÇO do array (a cabeça do array).
+
+/*
+// - pop   -> Remove o ÚLTIMO elemento do array e o retorna. Alterando o array original.
+const lista1 = [1, 2, 3];
+lista1.pop(); // O array vira: [1, 2]
+
+// - shift -> Remove o PRIMEIRO elemento do array e o retorna. Alterando o array original.
+const lista2 = [1, 2, 3];
+lista2.shift(); // O array vira: [2, 3]
+
+// 💻 Exemplo 1: O .pop() (Limpando o Final / Pilha de Pratos)
+// Pense no .pop() como uma pilha de pratos: você sempre tira o último que colocou no topo.
+// Ou, no mundo dos sistemas, o botão "Desfazer" (Ctrl + Z), que apaga a última ação que você fez.
+
+
+const tarefas = ['Estudar HTML', 'Treinar Node', 'Lavar a louça'];
+const tarefaRemovida = tarefas.pop(); // Ordem: Remove o ÚLTIMO item da lista
+
+console.log(tarefaRemovida); // Resultado: "Lavar a louça" (Foi jogado para fora!)
+console.log(tarefas);        // Resultado: [ "Estudar HTML", "Treinar Node" ]
+
+
+//💻 Exemplo 2: O .shift() (Atendendo o Primeiro / Fila de Banco)
+// Pense no .shift() como uma fila de banco tradicional:
+// o primeiro que chegou é o primeiro a ser atendido e sair da fila.
+// No mundo dos sistemas, isso controla filas de impressão ou mensagens esperando para serem enviadas.
+
+
+const filaBanco = ['Carlos', 'Ana', 'Beto'];
+const clienteAtendido = filaBanco.shift(); // Ordem: Atende e remove o PRIMEIRO item da lista
+
+console.log(clienteAtendido); // Resultado: "Carlos" (Saiu da frente da fila!)
+console.log(filaBanco);       // Resultado: [ "Ana", "Beto" ]
+
+
+
+const elements = ['Fire', 'Air', 'Water']
+elements.pop()
+console.log(elements)
+*/
+
+
+
+ // slice -> (Fatiar) Extrai uma parte do array e joga em um NOVO array.
+//            Deixa o array original 100% intacto. O último índice não é incluído.
+
+// 💻 Exemplo 1: Pegando os Primeiros Colocados (O Top 3)
+// Imagine que você tem uma lista com os 5 melhores alunos de um simulado
+// e quer isolar apenas os 3 primeiros colocados para dar um prêmio.
+
+/*
+const ranking = ['Ana', 'Beto', 'Jônata', 'Diego', 'Maria'];
+const top3 = ranking.slice(0, 3); // Ordem: Comece na posição 0 e vá até ANTES da posição 3 (posições 0, 1 e 2)
+
+console.log(top3); // Resultado: [ 'Ana', 'Beto', 'Jônata' ]
+console.log(ranking); // Resultado: [ 'Ana', 'Beto', 'Jônata', 'Diego', 'Maria' ] (Original INTACTO!)
+
+
+// 💻 Exemplo 2: Cortando do Meio Até o Final (O Atalho)
+// Se você passar apenas um número dentro dos parênteses,
+// o .slice() entende que você quer começar ali e ir até o último item da lista, não importa o tamanho dela.
+
+const meses = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai'];
+const aPartirDeMarço = meses.slice(2); // Ordem: Comece na posição 2 e pegue tudo até o fim da linha
+
+console.log(aPartirDeMarço); // Resultado: [ 'Mar', 'Abr', 'Mai' ]
+
+
+// 🧠 O Truque Avançado: Clonar um Array Inteiro
+// Como o .slice() gera um array novo sem mexer no original,
+// se você rodar ele sem nenhum número dentro dos parênteses,
+// ele simplesmente tira uma cópia idêntica do seu array inteiro.
+// É um truque muito usado para duplicar listas com segurança:
+
+const listaOriginal = ['A', 'B', 'C'];
+const listaClonada = listaOriginal.slice(); // Clona o array todinho
+*/
+
+
+// // - splice -> Altera o array original. Remove, substitui ou adiciona elementos.
+//                Formato: .splice(indice_inicial, qtd_deletar, itens_adicionar)
+
+
+// 💻 Exemplo 1: Apenas Deletando um Item do Meio da Lista
+// Imagine que o usuário "Dezembro" se cadastrou no lugar errado
+// em uma lista de meses e você quer simplesmente apagá-lo de lá.
+
+
+const meses = ['Jan', 'Fev', 'Dez', 'Abr'];
+meses.splice(2, 1); // Ordem: Vá na posição 2, e delete 1 item dali
+
+console.log(meses); // Resultado: [ 'Jan', 'Fev', 'Abr' ] -> Mudou o original na hora!
+
+
+// 💻 Exemplo 2: Substituindo um Item (Arranca um e coloca outro)
+// Imagine que você quer corrigir o erro do exemplo anterior de forma completa:
+// tirar o "Dez" e colocar o "Mar" exatamente na mesma vaga.
+
+const mesesCorrigir = ['Jan', 'Fev', 'Dez', 'Abr'];
+mesesCorrigir.splice(2, 1, 'Mar'); // Ordem: Vá na posição 2, delete 1 item ('Dez') e adicione 'Mar' no lugar
+
+console.log(mesesCorrigir); // Resultado: [ 'Jan', 'Fev', 'Mar', 'Abr' ]
+
+
+
+// Ordem: Vá na posição 1 (onde está a Calça), delete ZERO itens, e enfie 'Meia' ali
+const produtos = ['Camisa', 'Calça', 'Tênis'];
+
+produtos.splice(1, 0, 'Meia');
+
+console.log(produtos);
+// Resultado: [ 'Camisa', 'Meia', 'Calça', 'Tênis' ]
+// (A Calça e o Tênis foram empurrados para o lado!)
+
+
+//🧠 O Resumo da Diferença Crucial (Cai em Entrevista!)
+// slice (com C): Corta / Tira Cópia ➡️ Não mexe no original.
+// splice (com P): Picota / Altera o Pai ➡️ Modifica o original.
+
+

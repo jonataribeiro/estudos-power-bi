@@ -1,2 +1,30 @@
+<<<<<<< HEAD
 *.tmp 
 **/~* 
+=======
+# Pastas e arquivos de código que não devem subir
+node_modules/
+dist/
+build/
+
+# Configurações do VS Code
+.vscode/
+
+# Arquivos do sistema (Windows e Mac)
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Logs de erro e debug
+*.log
+npm-debug.log*
+
+# Banco de dados locais (para não subir os dados que você testa)
+*.db
+*.sqlite
+*.mdf
+*.ldf
+
+# Chaves de segurança (nunca subir senhas ou tokens!)
+*.env
+>>>>>>> a86b3ad09d9805ab683057bf27d59589c21f8486
