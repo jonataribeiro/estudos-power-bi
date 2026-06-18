@@ -2,6 +2,11 @@
 
 Repositório dedicado ao registro da minha evolução, estudos e projetos práticos utilizando o **Power BI**. O objetivo aqui é centralizar a criação de dashboards dinâmicos, extração de dados e modelagem de negócios.
 
+<div>
+  <img src="https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black" alt="Power BI" />
+  <img src="https://img.shields.io/badge/Power_Query-00828A?style=for-the-badge&logo=microsoft&logoColor=white" alt="Power Query" />
+</div>
+
 ---
 
 ## 🛠️ Tecnologias e Ferramentas
